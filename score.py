@@ -5,16 +5,16 @@ import sys
 
 if len(sys.argv) == 1:
     print(" Usage: python score.py url")
-    print(" url to be like this https://www.espncricinfo.com/series/8048/game/121654")
+    print(" game url to be like this https://www.espncricinfo.com/series/8048/game/121654")
     exit(1)
 
 #set the URL for the match
 URL = sys.argv[1]
-#location of the current score, batsmen and bowler by "mining"(actually lucked out)
+#location of the current score, batsmen and bowler
 parseLine = '<meta property="og:description" content="'
 
 #frequency resend request for new score
-refreshSpeed = 15
+refreshSpeed = 10
 
 #useful data start and end locations
 parseStart = 0
@@ -34,12 +34,15 @@ while(True):
     parseEnd = getData.text.find(")", parseStart) + 1
 
     #get the ball bowled
-    newBall = parseLocation[1] = getData.text.find(".", parseStart) + 1
-
+    newBall = getData.text[getData.text.find(".", parseStart) + 1]
+    #print(newBall)
+    #print(oldBall)
     #if there's a change in number of balls bowled then show score
-    if newBall != oldBall:
-        score = getData.text[parseStart:parseEnd]
-        print(score)
+    if newBall == oldBall:
+        continue
+
+    score = getData.text[parseStart:parseEnd]
+    print(score)
 
     #replace the old value so keeps running
     oldBall = newBall
