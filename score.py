@@ -5,6 +5,7 @@ import sys
 
 if len(sys.argv) == 1:
     print(" Usage: python score.py url")
+    print(" url to be like this https://www.espncricinfo.com/series/8048/game/121654")
     exit(1)
 
 #set the URL for the match
