@@ -3,9 +3,9 @@ A terminal score card that shows the current score, batsmen, and bowler for a gi
 
 
 Language: 
->>python 3
+>python 3
 
 Libraries used:
->>requests
->>time
->>sys
+>requests
+>time
+>sys
