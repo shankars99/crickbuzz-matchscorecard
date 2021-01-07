@@ -40,6 +40,8 @@ while(True):
     #if there's a change in number of balls bowled then show score
     if newBall == oldBall:
         continue
+    if newBall == str(6):
+        print();
 
     score = getData.text[parseStart:parseEnd]
     print(score)
